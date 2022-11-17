@@ -1,23 +1,10 @@
 <div class="container">
   <h1>Edit task</h1>
 
-  <%= form_with model: @task do |f| %>
-    <div class="form-group mb-3">
-      <%= f.label :title, class: 'form-label' %>
-      <%= f.text_field :title, class: 'form-control' %>
-    </div>
+  <%= render "form", task: @task %>
 
-    <div class="form-group mb-3">
-      <%= f.label :details, class: 'form-label' %>
-      <%= f.text_area :details, class: 'form-control' %>
-    </div>
-
-    <div class="checkbox">
-      <label>
-        <%= f.check_box :completed %> Completed
-      </label>
-    </div>
-
-    <%= f.submit class: 'btn btn-primary mt-3' %>
+  <hr>
+  <%= link_to task_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to detail page
   <% end %>
 </div>
