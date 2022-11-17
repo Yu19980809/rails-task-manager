@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>All Tasks</h1>
+
+  <ul class="list-group my-5">
+    <% @tasks.each do |task| %>
+      <li class="list-group-item d-flex justify-content-between">
+        <div>
+          <% if task.completed %>
+            <i class="fa-solid fa-square-check"></i>
+          <% else %>
+            <i class="fa-regular fa-square"></i>
+          <% end %>
+          <%= link_to task.title, task_path(task.id) %>
+        </div>
+        <%= link_to '🗑️', destroy_task_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"} %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Add a new task', new_task_path %>
+</div>
